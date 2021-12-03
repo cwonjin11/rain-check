@@ -1,12 +1,12 @@
 
-let WEATHER_API_KEY = config.API_KEY;
-// console.log(WEATHER_API_KEY );
+let WEATHER_API_KEY = API_KEY
+// console.log(API_KEY);
 
 let weather = {
 
     // "apiKey": "3b979f483cbd8b14ae2e74db99fe0873",
     "apiKey": WEATHER_API_KEY,
-    
+
     fetchWeather: function (city) {
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?q="
