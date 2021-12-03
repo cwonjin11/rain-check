@@ -58,9 +58,17 @@ input.search-bar{
 
 }
 
+p.date {
+    font-size: 0.9em;
+    position: relative;
+    bottom: 20px;
+    color: rgb(5, 197, 255)
+}
 h1.temperature {
     margin: 0;
-    margin-bottom: 0.4em;
+    /* margin-bottom: 0.4em; */
+    position: relative;
+    bottom: 15px;
 }
 
 

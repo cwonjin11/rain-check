@@ -25,7 +25,12 @@ let weather = {
         const {speed} = data.wind;
         console.log(name, icon, description, temp, humidity, speed)
         document.querySelector(".city").innerHTML = "Weather in " + name;
-        document.querySelector(".temperature").innerHTML = Math.round(temp)+ " °F"
+
+        let now = new Date;
+        let date = document.querySelector(".date");
+        date.innerText = this.dateBuilder(now)
+
+        document.querySelector(".temperature").innerHTML = Math.round(temp)+ "°F"
         document.querySelector(".icon").src = 
             "http://openweathermap.org/img/wn/" + icon + ".png";
         // document.querySelector(".city").innerHTML = 
@@ -34,12 +39,23 @@ let weather = {
         document.querySelector(".humidity").innerHTML = "Humidity : " + humidity + " %";
         document.querySelector(".wind").innerHTML = "Wind speed : " +speed+ " mph";
         document.querySelector(".weather").classList.remove("loading")
-        document.querySelector(".feels-like").innerHTML = "Feels like : " + Math.round(feels_like) + " °F"
+        document.querySelector(".feels-like").innerHTML = "Feels like : " + Math.round(feels_like) + "°F"
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name +"')"
     },
     search: function() {
         this.fetchWeather(document.querySelector(".search-bar").value);
+    },
+    dateBuilder: function(d) {
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let day = days[d.getDay()];
+        console.log(day)
+        let date = d.getDate();
+        let month = months[d.getMonth()]
+        let year = d.getFullYear();
+        return `${day} ${date} ${month} ${year}`
     }
+
 };
 
 document.querySelector(".search button").addEventListener("click", function(){
