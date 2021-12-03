@@ -21,7 +21,7 @@ let weather = {
     displayWeather: function(data) {
         const {name} = data;
         const {icon, description} = data.weather[0]
-        const {temp, humidity, feels_like} = data.main;
+        const {temp, temp_min, temp_max,humidity, feels_like} = data.main;
         const {speed} = data.wind;
         console.log(name, icon, description, temp, humidity, speed)
         document.querySelector(".city").innerHTML = "Weather in " + name;
@@ -30,7 +30,7 @@ let weather = {
         let date = document.querySelector(".date");
         date.innerText = this.dateBuilder(now)
 
-        document.querySelector(".temperature").innerHTML = Math.round(temp)+ "°F"
+        document.querySelector(".temperature").innerHTML = `${Math.round(temp)}<span>°F</span>` + " "+ `(${Math.round(temp_min)}/${Math.round(temp_max)})`
         document.querySelector(".icon").src = 
             "http://openweathermap.org/img/wn/" + icon + ".png";
         // document.querySelector(".city").innerHTML = 
