@@ -1,11 +1,12 @@
 
-let WEATHER_API_KEY = API_KEY
+// let WEATHER_API_KEY = API_KEY
 // console.log(API_KEY);
 
 let weather = {
 
     // "apiKey": "3b979f483cbd8b14ae2e74db99fe0873",
-    "apiKey": WEATHER_API_KEY,
+    "apiKey": api.key,
+    
 
     fetchWeather: function (city) {
         fetch(
