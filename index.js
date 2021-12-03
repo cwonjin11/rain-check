@@ -25,7 +25,7 @@ let weather = {
         const {speed} = data.wind;
         console.log(name, icon, description, temp, humidity, speed)
         document.querySelector(".city").innerHTML = "Weather in " + name;
-        document.querySelector(".temperature").innerHTML = temp+ " °F"
+        document.querySelector(".temperature").innerHTML = Math.round(temp)+ " °F"
         document.querySelector(".icon").src = 
             "http://openweathermap.org/img/wn/" + icon + ".png";
         // document.querySelector(".city").innerHTML = 
@@ -34,7 +34,7 @@ let weather = {
         document.querySelector(".humidity").innerHTML = "Humidity : " + humidity + " %";
         document.querySelector(".wind").innerHTML = "Wind speed : " +speed+ " mph";
         document.querySelector(".weather").classList.remove("loading")
-        document.querySelector(".feels-like").innerHTML = "Feels like : " + feels_like + " °F"
+        document.querySelector(".feels-like").innerHTML = "Feels like : " + Math.round(feels_like) + " °F"
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name +"')"
     },
     search: function() {
